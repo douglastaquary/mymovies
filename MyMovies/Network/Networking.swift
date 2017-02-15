@@ -8,7 +8,6 @@
 
 import Foundation
 import Moya
-import Alamofire
 import RxSwift
 
 struct Networking {

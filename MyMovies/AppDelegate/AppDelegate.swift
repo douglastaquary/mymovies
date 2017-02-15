@@ -15,12 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let dataManager = MovieDataManager()
     
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        
+        ApperanceHelper.customizeNavigationBar()
         return true
     }
 
