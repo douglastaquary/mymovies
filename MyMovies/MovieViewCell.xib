@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="N5e-kQ-Ob7" customClass="MovieViewCell" customModule="MyMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="73"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N5e-kQ-Ob7" id="CY4-8U-d3K">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4a-HY-mHA">
+                        <rect key="frame" x="0.0" y="2" width="16" height="69"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="Dnk-DC-IWJ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Filme" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDo-Q7-bHW">
+                        <rect key="frame" x="40" y="24" width="342" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="8ea-tK-Ap3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Q4a-HY-mHA" firstAttribute="leading" secondItem="CY4-8U-d3K" secondAttribute="leading" id="2gf-lt-Ux6"/>
+                    <constraint firstAttribute="trailing" secondItem="BDo-Q7-bHW" secondAttribute="trailing" constant="8" id="8z3-kD-nP9"/>
+                    <constraint firstItem="Q4a-HY-mHA" firstAttribute="top" secondItem="CY4-8U-d3K" secondAttribute="top" constant="2" id="9ia-dv-rhf"/>
+                    <constraint firstItem="BDo-Q7-bHW" firstAttribute="centerY" secondItem="CY4-8U-d3K" secondAttribute="centerY" id="etq-Ki-SPP"/>
+                    <constraint firstAttribute="bottom" secondItem="Q4a-HY-mHA" secondAttribute="bottom" constant="2" id="gI4-eS-QHr"/>
+                    <constraint firstItem="BDo-Q7-bHW" firstAttribute="leading" secondItem="CY4-8U-d3K" secondAttribute="leading" constant="40" id="x7N-4u-OgI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backgroundCell" destination="Q4a-HY-mHA" id="f14-GA-V46"/>
+                <outlet property="name" destination="BDo-Q7-bHW" id="0u1-tl-NSc"/>
+            </connections>
+            <point key="canvasLocation" x="31" y="-37.5"/>
+        </tableViewCell>
+    </objects>
+</document>
