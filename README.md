@@ -5,9 +5,8 @@
 
 -------
 <p align="center">
-    <a href="#MyMovies Screens">Appetit Screens</a> &bull;
+    <a href="#MyMovies Screens">MyMovies Screens</a> &bull;
     <a href="#motivacao">Motivação</a> &bull;
-    <a href="#ferramentas">Ferramentas de Testes</a> &bull;
     <a href="#cobertura">Cobertura de Testes</a> &bull;
     <a href="#instalacao">Instalação</a>
 </p>
@@ -21,8 +20,7 @@
 
 ## Motivação
 
-Esse repositório é referente ao protótipo criado para demonstrar o uso do Coredata, framework nativo para persistir dados no iOS 10 e usa a API com informações de filmes como fonte de busca.
-## Ferramentas de Testes
+Esse repositório é referente ao protótipo criado para demonstrar o uso do Coredata, framework nativo para persistir dados no iOS 10 e usa a API com informações de filmes [OMDb API](http://www.omdbapi.com) como fonte de busca.
 
 ## Instalação
 
