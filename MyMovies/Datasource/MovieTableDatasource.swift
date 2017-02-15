@@ -51,5 +51,6 @@ class MovieTableDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate.didSelectMovie(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

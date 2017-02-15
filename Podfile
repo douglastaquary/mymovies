@@ -6,11 +6,6 @@ target 'MyMovies' do
 
   # Pods for MyMovies
    pod 'SwiftGen'
-   #pod 'RxSwift'
-   #pod 'RxCocoa'
-   #pod 'Moya/RxSwift', '= 8.0.0-beta.3'
-   #pod 'NSObject+Rx'
-   #pod 'SwiftyJSON'
    pod "Moya-SwiftyJSONMapper/RxSwift"
    pod 'Kingfisher'
    pod "Reusable"
