@@ -15,7 +15,7 @@
 ## MyMovies Screens
 
 <h3 align="center">
-  <img src="Assets/screen_mymovies.png" alt="MyMovies Screens" />
+  <img src="Assets/screen_purple_movies.png" alt="MyMovies Screens" />
 </h3>
 
 ## Motivação

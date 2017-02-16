@@ -15,6 +15,8 @@ final class MovieTableDatasource: NSObject, MoviesTableViewDatasource {
     weak var tableView: UITableView?
     weak var delegate: UITableViewDelegate?
     
+    let managedContext = MovieDataManager().persistentContainer.viewContext
+    
     required init(titles: [NSManagedObject], tableView: UITableView, delegate: UITableViewDelegate) {
         self.titles = titles
         self.tableView = tableView
@@ -33,8 +35,10 @@ final class MovieTableDatasource: NSObject, MoviesTableViewDatasource {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: MovieViewCell.self)
         let nameOfMovie = self.titles[indexPath.row]
         cell.name.text = nameOfMovie.value(forKey: "title") as? String
+        cell.backgroundCell.backgroundColor = getRandomColor()
         return cell
     }
+
 }
 
 class MovieTableDelegate: NSObject, UITableViewDelegate {
@@ -54,3 +58,4 @@ class MovieTableDelegate: NSObject, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+

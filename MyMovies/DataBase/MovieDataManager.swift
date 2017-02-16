@@ -4,7 +4,7 @@ import CoreData
 
 protocol MovieDataManagerType {
     func saveNameOfMovie(with name: String)
-    func fetchTitles() -> [NSManagedObject]
+    //func fetchTitles() -> [NSManagedObject]
 }
 
 class MovieDataManager {
@@ -50,13 +50,5 @@ extension MovieDataManager: MovieDataManagerType {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-    }
-    
-    func fetchTitles() -> [NSManagedObject] {
-        let managedContext = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
-        let results = try! managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        
-        return results!
     }
 }

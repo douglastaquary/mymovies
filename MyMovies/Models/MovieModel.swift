@@ -36,7 +36,6 @@ final class MovieModel : ALSwiftyJSONAble {
     let response: String
     
     required init?(jsonData:JSON){
-        //self.args = jsonData["args"].object as? [String : String]
         
         self.title = jsonData["Title"].stringValue
         self.year = jsonData["Year"].stringValue

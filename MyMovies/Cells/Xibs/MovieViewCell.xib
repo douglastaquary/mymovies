@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="73"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N5e-kQ-Ob7" id="CY4-8U-d3K">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="73"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="72.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4a-HY-mHA">
@@ -31,11 +31,11 @@
                             <constraint firstAttribute="height" constant="24" id="8ea-tK-Ap3"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="Q4a-HY-mHA" firstAttribute="leading" secondItem="CY4-8U-d3K" secondAttribute="leading" id="2gf-lt-Ux6"/>
                     <constraint firstAttribute="trailing" secondItem="BDo-Q7-bHW" secondAttribute="trailing" constant="8" id="8z3-kD-nP9"/>

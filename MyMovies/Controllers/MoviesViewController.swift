@@ -14,9 +14,7 @@ protocol MoviesDelegate {
 }
 
 final class MoviesViewController: UIViewController {
-    
-    //var provider: Networking!
-    
+
     let dataManager = MovieDataManager()
 
     var tableDatasource: MovieTableDatasource?
@@ -30,19 +28,21 @@ final class MoviesViewController: UIViewController {
 extension MoviesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        namesOfMovies.append(contentsOf: dataManager.fetchTitles())
+        
+        let context = dataManager.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
+        let results = try! context.fetch(fetchRequest)
+        
+        namesOfMovies = results as! [NSManagedObject]
+        
         self.setupTableView(with: namesOfMovies)
         setUpNavBarItem()
         title = "My Movies"
-
     }
 }
 
 extension MoviesViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       // namesOfMovies.append(contentsOf: dataManager.fetchTitles())
-        //print("\n --> \(namesOfMovies.count)\n")
+    override func viewDidAppear(_ animated: Bool) {
     }
 }
 
@@ -77,27 +77,20 @@ extension MoviesViewController {
     }
     
     func showAlert() {
-        let alert =
-            UIAlertController(
-                title: "Novo filme",
-                message: "Adicionar um novo filme",
-                preferredStyle: .alert)
+        let alert = UIAlertController(title: "Novo Filme", message: "Adicionar um novo filme", preferredStyle: .alert)
         
-        let saveMovie =
-            UIAlertAction(title: "Salvar",
-                          style: .default) { [unowned self] action in
-                                            
-        guard let movieName = alert.textFields?.first,
-            let nameOfmovieToSave = movieName.text else {
-                return
-        }
-                                            
-        self.dataManager.saveNameOfMovie(with: nameOfmovieToSave)
-        self.tableView.reloadData()
+        let saveMovie = UIAlertAction(title: "Salvar", style: .default) { [unowned self] action in
+            guard let movieName = alert.textFields?.first,
+                let nameOfmovieToSave = movieName.text else {
+                    return
+            }
+            self.dataManager.saveNameOfMovie(with: nameOfmovieToSave)
+            self.tableView.beginUpdates()
+            self.tableView.reloadData()
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        
         alert.addTextField()
         alert.addAction(saveMovie)
         alert.addAction(cancelAction)

@@ -21,14 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-WI-buY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-WI-buY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.41351881820000003" green="0.41761306399999998" blue="0.41761306399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.94509803920000002" green="0.61176470589999998" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.57647058823529407" green="0.43633386948529407" blue="0.77254901960784317" alpha="0.52584546232876717" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TFg-WI-buY" firstAttribute="leading" secondItem="6ZQ-VS-aS4" secondAttribute="leading" id="YpD-WZ-DCr"/>
+                            <constraint firstItem="TFg-WI-buY" firstAttribute="top" secondItem="6ZQ-VS-aS4" secondAttribute="top" id="iaV-CC-huK"/>
+                            <constraint firstItem="oPV-WX-KT2" firstAttribute="top" secondItem="TFg-WI-buY" secondAttribute="bottom" id="sDy-8Y-42n"/>
+                            <constraint firstAttribute="trailing" secondItem="TFg-WI-buY" secondAttribute="trailing" id="xEC-pe-tWs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dCN-qy-Lhp"/>
                     <connections>
@@ -132,7 +137,7 @@
                                     <constraint firstAttribute="trailing" secondItem="eEP-tm-HGZ" secondAttribute="trailing" constant="5" id="paJ-ud-5Eo"/>
                                 </constraints>
                             </stackView>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26H-2R-IFz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26H-2R-IFz">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -206,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.41351881820000003" green="0.41761306399999998" blue="0.41761306399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.41351881820000003" green="0.41761306399999998" blue="0.41761306399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.57647058823529407" green="0.24313725490196078" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
