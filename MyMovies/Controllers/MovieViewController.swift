@@ -113,7 +113,7 @@ extension MovieViewController {
                     print("\n--> \(error)")
                     self.activityLoading.isHidden = true
                     self.loadingView.alpha = 1
-                    self.message.text = "Nennhum resultado encontrado 📹"
+                    self.message.text = "Nenhum filme encontrado 📹"
                     
                 }
             case let .failure(error):
