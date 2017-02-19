@@ -20,7 +20,7 @@
 
 ## Motivação
 
-Esse repositório é referente ao protótipo criado para demonstrar o uso do Coredata, framework nativo para persistir dados no iOS 10 e usa a API com informações de filmes [OMDb API](http://www.omdbapi.com) como fonte de busca.
+Esse repositório é referente ao protótipo criado para demonstrar o uso do Core Data, framework nativo para persistir dados no iOS 10 e usa a API com informações de filmes [OMDb API](http://www.omdbapi.com) como fonte de busca.
 
 ## Instalação
 
