@@ -39,16 +39,16 @@
 		972FF9871E661160003369BB /* EmptyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListViewModel.swift; sourceTree = "<group>"; };
 		972FF98A1E66123A003369BB /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		972FF98C1E6615FE003369BB /* TitleDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
-		972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListViewModelProtocol.swift; path = ../MovieListViewModelProtocol.swift; sourceTree = "<group>"; };
+		972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListViewModelProtocol.swift; path = MovieListViewModelProtocol.swift; sourceTree = "<group>"; };
 		972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
-		977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApperanceHelper+Colors.swift"; sourceTree = "<group>"; };
+		977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ApperanceHelper+Colors.swift"; path = "ApperanceHelper+Colors.swift"; sourceTree = "<group>"; };
 		97D5562C1E4D661C00EAE6B0 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		97D556371E4E7ABD00EAE6B0 /* Movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
 		97D5563B1E4E933C00EAE6B0 /* MovieTableDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableDatasource.swift; sourceTree = "<group>"; };
 		97D556401E4E983F00EAE6B0 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		97D556421E4E988200EAE6B0 /* MovieViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		97D556451E4E98AF00EAE6B0 /* MovieViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
-		97D556471E4E9C0C00EAE6B0 /* UIImage+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Kingfisher.swift"; sourceTree = "<group>"; };
+		97D556471E4E9C0C00EAE6B0 /* UIImage+Kingfisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Kingfisher.swift"; path = "UIImage+Kingfisher.swift"; sourceTree = "<group>"; };
 		97D556491E4E9FE900EAE6B0 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		97D5564C1E4EA36300EAE6B0 /* MovieNetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieNetworkModel.swift; sourceTree = "<group>"; };
 		97EC6A5D1E4F727800C1C358 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
@@ -95,6 +95,18 @@
 				972FF98C1E6615FE003369BB /* TitleDescriptionView.swift */,
 			);
 			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		972FF9921E666547003369BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */,
+				972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */,
+				97D556471E4E9C0C00EAE6B0 /* UIImage+Kingfisher.swift */,
+			);
+			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		97D556311E4E768E00EAE6B0 /* Models */ = {
@@ -116,9 +128,7 @@
 		97D5563E1E4E978900EAE6B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */,
 				97ED944E1E4AADB400E610E0 /* Assets.xcassets */,
-				97D556471E4E9C0C00EAE6B0 /* UIImage+Kingfisher.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -142,9 +152,9 @@
 		97D5564B1E4EA34E00EAE6B0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				972FF9871E661160003369BB /* EmptyListViewModel.swift */,
 				972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */,
 				97D5564C1E4EA36300EAE6B0 /* MovieNetworkModel.swift */,
-				972FF9871E661160003369BB /* EmptyListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -161,7 +171,6 @@
 		97ED94381E4AADB300E610E0 = {
 			isa = PBXGroup;
 			children = (
-				972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */,
 				0E25AD8E53948C7875421F9F /* Frameworks */,
 				97ED94431E4AADB300E610E0 /* MyMovies */,
 				BBA617C17BC3010AFD0FDD25 /* Pods */,
@@ -180,18 +189,19 @@
 		97ED94431E4AADB300E610E0 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
-				972FF9891E661220003369BB /* Views */,
 				97D5563F1E4E97D400EAE6B0 /* AppDelegate */,
 				97ED945A1E4AADDC00E610E0 /* Cells */,
 				97ED94591E4AADD000E610E0 /* Controllers */,
 				97EC6A601E4F8F5400C1C358 /* DataBase */,
 				97ED945C1E4AAE0400E610E0 /* Datasource */,
+				972FF9921E666547003369BB /* Extensions */,
 				97D556311E4E768E00EAE6B0 /* Models */,
 				97ED94611E4BEE8000E610E0 /* Network */,
 				97D5563E1E4E978900EAE6B0 /* Resources */,
 				97ED945B1E4AADE700E610E0 /* Storyboards */,
 				97D556361E4E7A6800EAE6B0 /* Stubbbed Response */,
 				97D5564B1E4EA34E00EAE6B0 /* ViewModels */,
+				972FF9891E661220003369BB /* Views */,
 				97ED94531E4AADB400E610E0 /* Info.plist */,
 			);
 			path = MyMovies;
