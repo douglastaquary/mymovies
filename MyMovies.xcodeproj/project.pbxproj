@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8E0E5E783B9B8FF757319E16 /* Pods_MyMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBDC7722F14C208780DD1715 /* Pods_MyMovies.framework */; };
+		972FF9881E661160003369BB /* EmptyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FF9871E661160003369BB /* EmptyListViewModel.swift */; };
+		972FF98B1E66123A003369BB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FF98A1E66123A003369BB /* Style.swift */; };
+		972FF98D1E6615FE003369BB /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FF98C1E6615FE003369BB /* TitleDescriptionView.swift */; };
+		972FF98F1E661D38003369BB /* MovieListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */; };
+		972FF9911E662321003369BB /* NSAttributedString+FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */; };
 		977F8C601E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */; };
 		97D5562D1E4D661C00EAE6B0 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5562C1E4D661C00EAE6B0 /* Networking.swift */; };
 		97D556381E4E7ABD00EAE6B0 /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 97D556371E4E7ABD00EAE6B0 /* Movie.json */; };
@@ -31,6 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		972FF9871E661160003369BB /* EmptyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListViewModel.swift; sourceTree = "<group>"; };
+		972FF98A1E66123A003369BB /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		972FF98C1E6615FE003369BB /* TitleDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
+		972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListViewModelProtocol.swift; path = ../MovieListViewModelProtocol.swift; sourceTree = "<group>"; };
+		972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FontColor.swift"; sourceTree = "<group>"; };
 		977F8C5F1E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApperanceHelper+Colors.swift"; sourceTree = "<group>"; };
 		97D5562C1E4D661C00EAE6B0 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		97D556371E4E7ABD00EAE6B0 /* Movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
@@ -78,6 +88,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		972FF9891E661220003369BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				972FF98A1E66123A003369BB /* Style.swift */,
+				972FF98C1E6615FE003369BB /* TitleDescriptionView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		97D556311E4E768E00EAE6B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +142,9 @@
 		97D5564B1E4EA34E00EAE6B0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				972FF98E1E661D38003369BB /* MovieListViewModelProtocol.swift */,
 				97D5564C1E4EA36300EAE6B0 /* MovieNetworkModel.swift */,
+				972FF9871E661160003369BB /* EmptyListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -140,6 +161,7 @@
 		97ED94381E4AADB300E610E0 = {
 			isa = PBXGroup;
 			children = (
+				972FF9901E662321003369BB /* NSAttributedString+FontColor.swift */,
 				0E25AD8E53948C7875421F9F /* Frameworks */,
 				97ED94431E4AADB300E610E0 /* MyMovies */,
 				BBA617C17BC3010AFD0FDD25 /* Pods */,
@@ -158,6 +180,7 @@
 		97ED94431E4AADB300E610E0 /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				972FF9891E661220003369BB /* Views */,
 				97D5563F1E4E97D400EAE6B0 /* AppDelegate */,
 				97ED945A1E4AADDC00E610E0 /* Cells */,
 				97ED94591E4AADD000E610E0 /* Controllers */,
@@ -354,20 +377,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972FF98F1E661D38003369BB /* MovieListViewModelProtocol.swift in Sources */,
 				97ED94601E4AAF7F00E610E0 /* MoviesTableViewDataSource.swift in Sources */,
 				97D556431E4E988200EAE6B0 /* MovieViewCell.swift in Sources */,
 				97EC6A671E50B05D00C1C358 /* MyMovies.xcdatamodeld in Sources */,
 				97D556481E4E9C0C00EAE6B0 /* UIImage+Kingfisher.swift in Sources */,
 				97EC6A771E53710000C1C358 /* MovieModel.swift in Sources */,
 				97EC6A5E1E4F727800C1C358 /* MovieAPI.swift in Sources */,
+				972FF98D1E6615FE003369BB /* TitleDescriptionView.swift in Sources */,
 				97D556411E4E983F00EAE6B0 /* Storyboard.swift in Sources */,
 				97ED94451E4AADB300E610E0 /* AppDelegate.swift in Sources */,
 				97ED945E1E4AAE7B00E610E0 /* MoviesViewController.swift in Sources */,
 				97D5563C1E4E933C00EAE6B0 /* MovieTableDatasource.swift in Sources */,
+				972FF9881E661160003369BB /* EmptyListViewModel.swift in Sources */,
 				97D5564A1E4E9FE900EAE6B0 /* MovieViewController.swift in Sources */,
 				97EC6A621E4F8F6700C1C358 /* MovieDataManager.swift in Sources */,
 				97D5562D1E4D661C00EAE6B0 /* Networking.swift in Sources */,
+				972FF98B1E66123A003369BB /* Style.swift in Sources */,
 				97D5564D1E4EA36300EAE6B0 /* MovieNetworkModel.swift in Sources */,
+				972FF9911E662321003369BB /* NSAttributedString+FontColor.swift in Sources */,
 				977F8C601E53FFA900C4FEA1 /* ApperanceHelper+Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

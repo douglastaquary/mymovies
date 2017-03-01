@@ -16,33 +16,39 @@ protocol MoviesDelegate {
 final class MoviesViewController: UIViewController {
 
     let dataManager = MovieDataManager()
-
+    
     var tableDatasource: MovieTableDatasource?
     var tableDelegate: MovieTableDelegate?
 
     var namesOfMovies: [NSManagedObject] = []
 
     @IBOutlet weak var tableView: UITableView!
+    
+    lazy var viewModel: MovieListViewModelProtocol = {
+        return MovieListViewModel()
+    }()
 }
 
 extension MoviesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = dataManager.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
-        let results = try! context.fetch(fetchRequest)
-        
-        namesOfMovies = results as! [NSManagedObject]
-        
-        self.setupTableView(with: namesOfMovies)
         setUpNavBarItem()
-        title = "My Movies"
+        title = "Meus Filmes"
     }
 }
 
 extension MoviesViewController {
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+
+        loadData()
+        
+        if namesOfMovies.isEmpty {
+           update()
+        } else {
+            self.setupTableView(with: namesOfMovies)
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -67,6 +73,38 @@ extension MoviesViewController: MoviesDelegate {
     }
 }
 
+extension MoviesViewController: MovieDataManagerType {
+    func saveNameOfMovie(with name: String) {
+        let managedContext = dataManager.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Title", in: managedContext)!
+        let movie = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        movie.setValue(name, forKey: "title")
+        
+        do {
+            try managedContext.save()
+            self.namesOfMovies.append(movie)
+            self.tableView.reloadData()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+}
+
+extension MoviesViewController {
+
+    func update() {
+        tableView.reloadData()
+        if let emptyListViewModel = viewModel.emptyListViewModel {
+            let backgroundView = TitleDescriptionView()
+            backgroundView.viewModel = emptyListViewModel
+            tableView.backgroundView = backgroundView
+        } else {
+            tableView.backgroundView = nil
+        }
+    }
+}
+
 
 extension MoviesViewController {
     
@@ -84,8 +122,8 @@ extension MoviesViewController {
                 let nameOfmovieToSave = movieName.text else {
                     return
             }
-            self.dataManager.saveNameOfMovie(with: nameOfmovieToSave)
-            self.tableView.beginUpdates()
+            self.saveNameOfMovie(with: nameOfmovieToSave)
+            self.loadData()
             self.tableView.reloadData()
         }
         
@@ -95,6 +133,18 @@ extension MoviesViewController {
         alert.addAction(saveMovie)
         alert.addAction(cancelAction)
         present(alert, animated: true)
+    }
+
+    func loadData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
+        let context = dataManager.persistentContainer.viewContext
+        do{
+            let results = try context.fetch(fetchRequest)
+            namesOfMovies = results as! [NSManagedObject]
+            tableView.reloadData()
+        }catch{
+            fatalError("Error is retriving titles items")
+        }
     }
 }
 

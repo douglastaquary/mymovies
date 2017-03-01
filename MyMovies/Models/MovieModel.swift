@@ -65,3 +65,28 @@ final class MovieModel : ALSwiftyJSONAble {
 }
 
 
+extension NSObject {
+    static func storeJSON(dataToStore: [String: AnyObject], completion: (_ data: Data?) -> Void) {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: dataToStore, options: [])
+            completion(data)
+        } catch let error as NSError {
+            print("JSONSerialization Error: \(error)")
+            completion(nil)
+        }
+    }
+    
+    func retrieveJSON(completion: (_ json: AnyObject?) -> Void) {
+        if let data = self as? NSData {
+            do {
+                let result = try JSONSerialization.jsonObject(with: data as Data, options: [])
+                completion(result as AnyObject)
+            } catch let error as NSError {
+                print("JSONSerialization Error: \(error)")
+                completion(nil)
+            }
+        }
+    }
+}
+
+

@@ -24,7 +24,6 @@ final class MovieViewController: UIViewController {
     @IBOutlet weak var awards: UILabel!
     @IBOutlet weak var votes: UILabel!
     @IBOutlet weak var director: UILabel!
-    
     @IBOutlet weak var thumb: UIImageView!
     
     @IBOutlet weak var loadingView: UIView!
@@ -57,40 +56,40 @@ extension MovieViewController {
 extension MovieViewController {
     func setupView() {
         
-        let nameOfFilme = movie.value?.title ?? ""
-        titleMovie.text = nameOfFilme.isEmpty ? "Nenhum nome" : nameOfFilme
+        let nameOfMovie = movie.value?.title ?? ""
+        titleMovie.text = nameOfMovie.isEmpty ? "Nenhum Filme foi encontrado! " : nameOfMovie
         
         let year = movie.value?.year ?? ""
-        movieYear.text = year.isEmpty ? "Sem descrição" : year
+        movieYear.text = year.isEmpty ? "" : year
         
         let released = movie.value?.released ?? ""
-        releseadMovie.text = released.isEmpty ? "Sem descrição" : released
+        releseadMovie.text = released.isEmpty ? "" : released
         
         let duration = movie.value?.runtime ?? ""
-        durationMovie.text = duration.isEmpty ? "Sem descrição" : duration
+        durationMovie.text = duration.isEmpty ? "" : duration
         
         let genre = movie.value?.genre ?? ""
-        genreMovie.text = genre.isEmpty ? "Sem descrição" : genre
+        genreMovie.text = genre.isEmpty ? "" : genre
         
         let directorMovie = movie.value?.director ?? ""
-        director.text = directorMovie.isEmpty ? "Sem descrição" : directorMovie
+        director.text = directorMovie.isEmpty ? "" : directorMovie
         
         let actorsMovie = movie.value?.actors ?? ""
-        actors.text = actorsMovie.isEmpty ? "Sem descrição" : actorsMovie
+        actors.text = actorsMovie.isEmpty ? "" : actorsMovie
         
         let writerMovie = movie.value?.writer ?? ""
-        writer.text = writerMovie.isEmpty ? "Sem descrição" : writerMovie
+        writer.text = writerMovie.isEmpty ? "" : writerMovie
         
         let ratingToMovie = movie.value?.rated ?? ""
-        rating.text = ratingToMovie.isEmpty ? "Sem descrição" : ratingToMovie
+        rating.text = ratingToMovie.isEmpty ? "" : ratingToMovie
         
         let awardsOfMovie = movie.value?.awards ?? ""
-        awards.text = awardsOfMovie.isEmpty ? "Sem descrição" : awardsOfMovie
+        awards.text = awardsOfMovie.isEmpty ? "" : awardsOfMovie
         
         let votesToMovie = movie.value?.imdbVotes ?? ""
-        votes.text = votesToMovie.isEmpty ? "Sem descrição" : votesToMovie
+        votes.text = votesToMovie.isEmpty ? "" : votesToMovie
 
-        title = nameOfFilme
+        title = nameOfMovie
         
         thumb.download(image: movie.value?.poster ?? "")
     }
