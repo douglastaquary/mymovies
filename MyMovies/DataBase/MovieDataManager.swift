@@ -36,19 +36,4 @@ class MovieDataManager {
     }
 }
 
-extension MovieDataManager: MovieDataManagerType {
 
-    func saveNameOfMovie(with name: String) {
-        let managedContext = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Title", in: managedContext)!
-        let movie = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        movie.setValue(name, forKey: "title")
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-    }
-}

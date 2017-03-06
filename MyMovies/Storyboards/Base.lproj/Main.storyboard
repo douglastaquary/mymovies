@@ -6,9 +6,101 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Add Movie View Controller-->
+        <scene sceneID="MKW-aD-zQ8">
+            <objects>
+                <viewController storyboardIdentifier="AddMovieViewController" id="Em0-3c-vAd" customClass="AddMovieViewController" customModule="MyMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H9I-Sb-kjU"/>
+                        <viewControllerLayoutGuide type="bottom" id="xYu-4N-930"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y3O-ET-Tm0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5q-aq-jbm">
+                                <rect key="frame" x="28" y="257" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.57647058819999997" green="0.24313725489999999" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="shl-Sp-cVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <state key="normal" title="Adicionar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Digite o nome de um filme" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXS-8d-JFh">
+                                <rect key="frame" x="37" y="169" width="300" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sIY-f9-KZ3"/>
+                                </constraints>
+                                <color key="textColor" red="0.57647058819999997" green="0.24313725489999999" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSZ-0g-wXi">
+                                <rect key="frame" x="37" y="79" width="192.5" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="det-VU-EaL"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Novo Filme">
+                                        <attributes>
+                                            <font key="NSFont" size="38" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-lY-p9L">
+                                <rect key="frame" x="294" y="28" width="65" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="E1N-LA-WlK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.57647058819999997" green="0.24313725489999999" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b5q-aq-jbm" firstAttribute="top" secondItem="kXS-8d-JFh" secondAttribute="bottom" constant="44" id="5QR-1R-nDy"/>
+                            <constraint firstAttribute="trailing" secondItem="kXS-8d-JFh" secondAttribute="trailing" constant="38" id="CKL-mR-6I9"/>
+                            <constraint firstItem="b5q-aq-jbm" firstAttribute="centerX" secondItem="Y3O-ET-Tm0" secondAttribute="centerX" id="CkX-co-bOK"/>
+                            <constraint firstItem="BSZ-0g-wXi" firstAttribute="leading" secondItem="Y3O-ET-Tm0" secondAttribute="leadingMargin" constant="21" id="ZGr-yB-3xc"/>
+                            <constraint firstItem="kXS-8d-JFh" firstAttribute="leading" secondItem="Y3O-ET-Tm0" secondAttribute="leading" constant="37" id="egT-rG-nQn"/>
+                            <constraint firstItem="BSZ-0g-wXi" firstAttribute="top" secondItem="H9I-Sb-kjU" secondAttribute="bottom" constant="59" id="fOh-Hc-m8L"/>
+                            <constraint firstAttribute="trailing" secondItem="b5q-aq-jbm" secondAttribute="trailing" constant="27" id="gbV-iC-0po"/>
+                            <constraint firstAttribute="trailing" secondItem="Jhq-lY-p9L" secondAttribute="trailing" constant="16" id="gis-9U-Oxh"/>
+                            <constraint firstItem="Jhq-lY-p9L" firstAttribute="top" secondItem="H9I-Sb-kjU" secondAttribute="bottom" constant="8" id="iUl-Lo-UEO"/>
+                            <constraint firstItem="kXS-8d-JFh" firstAttribute="top" secondItem="BSZ-0g-wXi" secondAttribute="bottom" constant="42" id="vbL-ZK-qi0"/>
+                            <constraint firstItem="b5q-aq-jbm" firstAttribute="leading" secondItem="Y3O-ET-Tm0" secondAttribute="leading" constant="28" id="w6n-PZ-VQJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="b5q-aq-jbm" id="ga9-LR-UHl"/>
+                        <outlet property="addMovieTextField" destination="kXS-8d-JFh" id="M0u-EZ-1Ns"/>
+                        <outlet property="cancelButton" destination="Jhq-lY-p9L" id="7dM-bz-s6c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzF-QK-czD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="-583.3583208395803"/>
+        </scene>
         <!--Movies View Controller-->
         <scene sceneID="gBF-ye-rhr">
             <objects>
@@ -200,14 +292,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRo-aE-unr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="107.49625187406298"/>
+            <point key="canvasLocation" x="2410" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q4a-bd-6w9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6SG-mN-CRc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1hz-uJ-DFK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1hz-uJ-DFK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.41351881820000003" green="0.41761306399999998" blue="0.41761306399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
