@@ -9,8 +9,11 @@
 import Foundation
 import Moya_SwiftyJSONMapper
 import SwiftyJSON
+import CoreData
 
 final class MovieModel : ALSwiftyJSONAble {
+    
+    var dataManager = MovieDataManager()
     
     let title: String
     let year: String
@@ -36,7 +39,6 @@ final class MovieModel : ALSwiftyJSONAble {
     let response: String
     
     required init?(jsonData:JSON){
-        
         self.title = jsonData["Title"].stringValue
         self.year = jsonData["Year"].stringValue
         
@@ -60,31 +62,44 @@ final class MovieModel : ALSwiftyJSONAble {
         self.imdbID = jsonData["ImdbID"].stringValue
         self.type = jsonData["Type"].stringValue
         self.response = jsonData["Response"].stringValue
+        
+        saveMovie()
     }
     
 }
 
 
-extension NSObject {
-    static func storeJSON(dataToStore: [String: AnyObject], completion: (_ data: Data?) -> Void) {
+extension MovieModel {
+    func saveMovie() {
+        let managedContext = dataManager.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Movie", in: managedContext)!
+        let movie = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        movie.setValue(title, forKey: "title")
+        movie.setValue(year, forKey: "year")
+        movie.setValue(rated, forKey: "rated")
+        movie.setValue(released, forKey: "released")
+        movie.setValue(runtime, forKey: "runtime")
+        movie.setValue(genre, forKey: "genre")
+        movie.setValue(director, forKey: "director")
+        movie.setValue(writer, forKey: "writer")
+        movie.setValue(actors, forKey: "actors")
+        movie.setValue(plot, forKey: "plot")
+        movie.setValue(language, forKey: "language")
+        movie.setValue(country, forKey: "country")
+        movie.setValue(awards, forKey: "awards")
+        movie.setValue(poster, forKey: "poster")
+        movie.setValue(metascore, forKey: "metascore")
+        movie.setValue(imdbRating, forKey: "imdbRating")
+        movie.setValue(imdbVotes, forKey: "imdbVotes")
+        movie.setValue(imdbID, forKey: "imdbID")
+        movie.setValue(type, forKey: "type")
+        movie.setValue(response, forKey: "response")
+        
         do {
-            let data = try JSONSerialization.data(withJSONObject: dataToStore, options: [])
-            completion(data)
+            try managedContext.save()
         } catch let error as NSError {
-            print("JSONSerialization Error: \(error)")
-            completion(nil)
-        }
-    }
-    
-    func retrieveJSON(completion: (_ json: AnyObject?) -> Void) {
-        if let data = self as? NSData {
-            do {
-                let result = try JSONSerialization.jsonObject(with: data as Data, options: [])
-                completion(result as AnyObject)
-            } catch let error as NSError {
-                print("JSONSerialization Error: \(error)")
-                completion(nil)
-            }
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
 }

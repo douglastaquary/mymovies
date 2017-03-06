@@ -15,6 +15,8 @@ final class MovieTableDatasource: NSObject, MoviesTableViewDatasource {
     weak var tableView: UITableView?
     weak var delegate: UITableViewDelegate?
     
+    var dataManager = MovieDataManager()
+    
     let managedContext = MovieDataManager().persistentContainer.viewContext
     
     required init(titles: [NSManagedObject], tableView: UITableView, delegate: UITableViewDelegate) {
@@ -38,7 +40,6 @@ final class MovieTableDatasource: NSObject, MoviesTableViewDatasource {
         cell.backgroundCell.backgroundColor = getRandomColor()
         return cell
     }
-
 }
 
 class MovieTableDelegate: NSObject, UITableViewDelegate {

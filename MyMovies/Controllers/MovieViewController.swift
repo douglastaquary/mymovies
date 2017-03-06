@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import RxSwift
+import CoreData
 
 final class MovieViewController: UIViewController {
     
@@ -30,11 +31,10 @@ final class MovieViewController: UIViewController {
     @IBOutlet weak var activityLoading: UIActivityIndicatorView!
     @IBOutlet weak var message: UILabel!
     
-    
     var movie = Variable<MovieModel?>(nil)
     var nameOfMovie: String?
     var apiManager: Networking!
-
+    var dataManager = MovieDataManager()
 }
 
 extension MovieViewController {
@@ -44,7 +44,8 @@ extension MovieViewController {
         self.activityLoading.isHidden = false
         self.activityLoading.startAnimating()
         self.message.text = "Procurando filme..."
-        downloadMovie(nameOfMovie!)
+        
+        searchMovie()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +95,53 @@ extension MovieViewController {
         thumb.download(image: movie.value?.poster ?? "")
     }
 }
+
+extension MovieViewController {
+
+    func searchMovie() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Movie")
+        let context = dataManager.persistentContainer.viewContext
+        
+        fetchRequest.predicate = NSPredicate(format: "title == %@", nameOfMovie!)
+        do{
+            let results = try context.fetch(fetchRequest)
+            if results.isEmpty {
+                downloadMovie(nameOfMovie!)
+            } else if results.count > 0 {
+                let movie = results[0] as! NSManagedObject
+                
+                print("\n Fonte de Dados: \nCoreData: \(movie)\n")
+                
+                titleMovie.text = movie.value(forKey: "title") as? String
+                movieYear.text = movie.value(forKey: "year") as? String
+                releseadMovie.text = movie.value(forKey: "released") as? String
+                durationMovie.text = movie.value(forKey: "runtime") as? String
+                genreMovie.text = movie.value(forKey: "genre") as? String
+                director.text = movie.value(forKey: "director") as? String
+                actors.text = movie.value(forKey: "actors") as? String
+                writer.text = movie.value(forKey: "writer") as? String
+                rating.text = movie.value(forKey: "rated") as? String
+                votes.text = movie.value(forKey: "imdbVotes") as? String
+                awards.text = movie.value(forKey: "awards") as? String
+                thumb.download(image: movie.value(forKey: "poster") as! String)
+                
+                self.activityLoading.stopAnimating()
+                self.activityLoading.isHidden = true
+                self.loadingView.isHidden = true
+                self.message.isHidden = true
+                
+            } else {
+                self.activityLoading.stopAnimating()
+                self.activityLoading.isHidden = true
+                self.message.text = "Nenhum filme encontrado 📹"
+            }
+        
+        } catch{
+            fatalError("Error is retriving titles items")
+        }
+    }
+}
+
 
 extension MovieViewController {
     func downloadMovie(_ title: String) {

@@ -11,6 +11,7 @@ import CoreData
 
 protocol MoviesDelegate {
     func didSelectMovie(at index: IndexPath)
+    func addNewMovie()
 }
 
 final class MoviesViewController: UIViewController {
@@ -32,7 +33,6 @@ final class MoviesViewController: UIViewController {
 extension MoviesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpNavBarItem()
         title = "Meus Filmes"
     }
@@ -40,7 +40,6 @@ extension MoviesViewController {
 
 extension MoviesViewController {
     override func viewWillAppear(_ animated: Bool) {
-
         loadData()
         
         if namesOfMovies.isEmpty {
@@ -71,23 +70,14 @@ extension MoviesViewController: MoviesDelegate {
         nextController.nameOfMovie = nameOfMovie.value(forKey: "title") as? String
         self.navigationController?.pushViewController(nextController, animated: true)
     }
-}
-
-extension MoviesViewController: MovieDataManagerType {
-    func saveNameOfMovie(with name: String) {
-        let managedContext = dataManager.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Title", in: managedContext)!
-        let movie = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        movie.setValue(name, forKey: "title")
-        
-        do {
-            try managedContext.save()
-            self.namesOfMovies.append(movie)
-            self.tableView.reloadData()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+    
+    
+    func addNewMovie() {
+        guard let nextController = Storyboard.Main.addMovieViewControllerScene
+            .viewController() as? AddMovieViewController else {
+                return
         }
+        self.navigationController?.present(nextController, animated: true, completion: nil)
     }
 }
 
@@ -111,30 +101,9 @@ extension MoviesViewController {
     func setUpNavBarItem() {
         navigationController?.navigationBar
             .topItem?
-            .rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,target: self, action: #selector(showAlert))
+            .rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,target: self, action: #selector(addNewMovie))
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "Novo Filme", message: "Adicionar um novo filme", preferredStyle: .alert)
-        
-        let saveMovie = UIAlertAction(title: "Salvar", style: .default) { [unowned self] action in
-            guard let movieName = alert.textFields?.first,
-                let nameOfmovieToSave = movieName.text else {
-                    return
-            }
-            self.saveNameOfMovie(with: nameOfmovieToSave)
-            self.loadData()
-            self.tableView.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        
-        alert.addTextField()
-        alert.addAction(saveMovie)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-
     func loadData() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Title")
         let context = dataManager.persistentContainer.viewContext
@@ -146,5 +115,10 @@ extension MoviesViewController {
             fatalError("Error is retriving titles items")
         }
     }
+}
+
+extension MoviesViewController {
+
+
 }
 

@@ -66,5 +66,15 @@ struct Storyboard {
             }
             return vc
         }
+        
+        case addMovieViewControllerScene = "AddMovieViewController"
+        static func instantiateCharactersViewController() -> AddMovieViewController {
+            guard let vc = Storyboard.Main.addMovieViewControllerScene.viewController() as? AddMovieViewController
+                else {
+                    fatalError("ViewController 'ItemViewController' is not of the expected class ItemViewController.")
+            }
+            return vc
+        }
     }
 }
+
